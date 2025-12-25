@@ -25,25 +25,21 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.5px;
 }
 
-/* --- 3. The Animated Preloader (5 Seconds Big to Small) --- */
+/* --- 3. The 5-Second Animated Preloader --- */
 #preloader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-color: var(--bg-dark);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* The preloader itself fades out at the end */
     animation: fadeOutBackground 1s ease-out 5s forwards;
 }
 
 .preloader-content {
     text-align: center;
-    /* Animation: Starts huge (3x), scales to normal (1x) over 5 seconds */
     animation: scaleLogo 5s ease-in-out forwards;
 }
 
@@ -62,18 +58,17 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 5px;
 }
 
-/* Keyframes for Preloader */
 @keyframes scaleLogo {
-    0% { transform: scale(3); opacity: 0; }
-    20% { opacity: 1; } /* Fade in quickly */
-    100% { transform: scale(0.5); opacity: 0; } /* End small and disappear */
+    0%   { transform: scale(3); opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0; }
 }
 
 @keyframes fadeOutBackground {
     to { opacity: 0; visibility: hidden; }
 }
 
-/* --- 4. The New Logo Styling --- */
+/* --- 4. Brand / Logo Styling --- */
 .navbar-brand {
     font-weight: 800;
     font-size: 1.8rem;
@@ -83,21 +78,20 @@ h1, h2, h3, h4, h5 {
     gap: 10px;
 }
 
-/* Unique Hexagon Logo Shape */
 .brand-logo-box {
     width: 40px;
     height: 40px;
     background: var(--gold-gradient);
-    border-radius: 8px; /* Slightly rounded square */
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    transform: rotate(45deg); /* Diamond shape */
+    transform: rotate(45deg);
 }
 
 .brand-logo-box i {
-    transform: rotate(-45deg); /* Rotate icon back */
+    transform: rotate(-45deg);
     color: black;
     font-size: 1.2rem;
 }
@@ -126,7 +120,8 @@ h1, h2, h3, h4, h5 {
     transition: 0.3s;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--gold-primary) !important;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
@@ -146,8 +141,9 @@ h1, h2, h3, h4, h5 {
     border-color: var(--gold-primary);
 }
 
-.bg-light, .page-header {
-    background-color: #0a0a0a !important; /* Slightly lighter black */
+.bg-light,
+.page-header {
+    background-color: #0a0a0a !important;
 }
 
 /* --- 7. Buttons (Gold Gradient) --- */
@@ -190,15 +186,15 @@ h1, h2, h3, h4, h5 {
     color: #888 !important;
 }
 
-/* Neon Green for profits/success stats */
 .text-success-neon {
     color: var(--green-accent);
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
 }
 
-/* Icons Backgrounds */
-.bg-primary.bg-opacity-10, 
-.value-icon, .service-icon {
+/* Icons */
+.bg-primary.bg-opacity-10,
+.value-icon,
+.service-icon {
     background: rgba(255, 215, 0, 0.1) !important;
     color: var(--gold-primary) !important;
     border: 1px solid var(--gold-primary);
@@ -208,4 +204,44 @@ h1, h2, h3, h4, h5 {
 footer.bg-dark {
     background-color: #000000 !important;
     border-top: 1px solid #333;
+}
+
+/* --- 10. Images --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 11. Mobile Responsiveness Fixes --- */
+@media (max-width: 991.98px) {
+    .navbar-brand { font-size: 1.4rem; }
+    .display-4    { font-size: 2.5rem !important; }
+
+    .hero-section { text-align: center; padding-top: 80px !important; }
+    .hero-image   { margin-top: 3rem; }
+
+    .navbar-collapse {
+        background: var(--bg-panel);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .display-4 { font-size: 2rem !important; }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .floating-card {
+        display: none;
+    }
+    section {
+        padding: 40px 0 !important;
+    }
 }
