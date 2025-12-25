@@ -1,0 +1,211 @@
+/* css/luxury-theme.css */
+
+/* --- 1. Variables: Luxury Gold & Dark AI Theme --- */
+:root {
+    --bg-dark: #050505;       /* Pure Black */
+    --bg-panel: #121212;      /* Dark Charcoal */
+    --gold-primary: #FFD700;  /* Pure Gold */
+    --gold-gradient: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
+    --green-accent: #00ff88;  /* Neon Green for profits/AI */
+    --text-white: #ffffff;
+    --text-gray: #a0a0a0;
+    --glass-border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* --- 2. Global Resets --- */
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--text-white);
+    letter-spacing: 0.5px;
+}
+
+/* --- 3. The Animated Preloader (5 Seconds Big to Small) --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* The preloader itself fades out at the end */
+    animation: fadeOutBackground 1s ease-out 5s forwards;
+}
+
+.preloader-content {
+    text-align: center;
+    /* Animation: Starts huge (3x), scales to normal (1x) over 5 seconds */
+    animation: scaleLogo 5s ease-in-out forwards;
+}
+
+.logo-icon-anim {
+    font-size: 8rem;
+    color: var(--gold-primary);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.logo-text-anim {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+/* Keyframes for Preloader */
+@keyframes scaleLogo {
+    0% { transform: scale(3); opacity: 0; }
+    20% { opacity: 1; } /* Fade in quickly */
+    100% { transform: scale(0.5); opacity: 0; } /* End small and disappear */
+}
+
+@keyframes fadeOutBackground {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* --- 4. The New Logo Styling --- */
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Unique Hexagon Logo Shape */
+.brand-logo-box {
+    width: 40px;
+    height: 40px;
+    background: var(--gold-gradient);
+    border-radius: 8px; /* Slightly rounded square */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    transform: rotate(45deg); /* Diamond shape */
+}
+
+.brand-logo-box i {
+    transform: rotate(-45deg); /* Rotate icon back */
+    color: black;
+    font-size: 1.2rem;
+}
+
+.brand-text {
+    color: white;
+}
+
+.brand-text span {
+    color: var(--gold-primary);
+}
+
+/* --- 5. Navigation --- */
+.navbar {
+    background: rgba(5, 5, 5, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    padding: 15px 0;
+}
+
+.nav-link {
+    color: var(--text-gray) !important;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--gold-primary) !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* --- 6. Unique "Glass" Cards --- */
+.card {
+    background: var(--bg-panel);
+    border: var(--glass-border);
+    border-radius: 15px;
+    color: var(--text-gray);
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--gold-primary);
+}
+
+.bg-light, .page-header {
+    background-color: #0a0a0a !important; /* Slightly lighter black */
+}
+
+/* --- 7. Buttons (Gold Gradient) --- */
+.btn-primary {
+    background: var(--gold-gradient);
+    border: none;
+    color: black;
+    font-weight: 700;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--gold-primary);
+    color: var(--gold-primary);
+    font-weight: 700;
+}
+
+.btn-outline-primary:hover {
+    background: var(--gold-primary);
+    color: black;
+    border-color: var(--gold-primary);
+}
+
+/* --- 8. Typography Highlights --- */
+.text-primary {
+    color: var(--gold-primary) !important;
+}
+
+.text-muted {
+    color: #888 !important;
+}
+
+/* Neon Green for profits/success stats */
+.text-success-neon {
+    color: var(--green-accent);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+
+/* Icons Backgrounds */
+.bg-primary.bg-opacity-10, 
+.value-icon, .service-icon {
+    background: rgba(255, 215, 0, 0.1) !important;
+    color: var(--gold-primary) !important;
+    border: 1px solid var(--gold-primary);
+}
+
+/* --- 9. Footer --- */
+footer.bg-dark {
+    background-color: #000000 !important;
+    border-top: 1px solid #333;
+}
